@@ -74,7 +74,7 @@ def start():
 
                 #reload config
                 try:
-                    result = subprocess.run(['systemctl', 'reload', 'iptables'], capture_output=True, text=True, check=True)
+                    result = subprocess.run(['systemctl', 'restart', 'iptables'], capture_output=True, text=True, check=True)
                     logger.info(f"Reloaded iptables: {result.stdout}")
                 except subprocess.CalledProcessError as e:
                     logger.error(f"Failed to reload iptables: {e} - Output: \n{e.stdout}")
