@@ -2,7 +2,8 @@ import json
 import os
 import sys
 
-from utils.logger import logger
+from utils.logger import create_logger
+logger = create_logger("PM2")
 
 def build_pm2_file():
     obj = {
