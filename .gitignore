@@ -1,0 +1,4 @@
+/.env
+/ips.txt
+/pm2_generated.json
+/.venv/
