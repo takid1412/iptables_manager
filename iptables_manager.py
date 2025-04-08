@@ -24,15 +24,17 @@ def start():
         logger.error("Iptables config file '{}' not found".format(iptables_file))
         exit(0)
 
+    processors = [
+        CloudflareProcessor()
+    ]
+
     while True:
         with open(iptables_file) as f:
             config = f.read()
         new_config = config
-        processors = [
-            CloudflareProcessor()
-        ]
+
         for processor in processors:
-            new_config = processor.process(config)
+            new_config = processor.process(new_config)
 
         if new_config != config:
             with open(iptables_file, "w") as f:
